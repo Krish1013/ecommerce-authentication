@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 /**
- * Reusable controlled Input component with label, error display, and accessibility.
+ * Reusable controlled Input with label, error display, accessibility, and dark mode.
  */
 export default function Input({
   id,
@@ -29,11 +29,11 @@ export default function Input({
   };
 
   return (
-    <div className={`mb-4 ${className}`}>
+    <div className={`mb-5 ${className}`}>
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-gray-700 mb-1.5"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
         >
           {label}
           {required && <span className="text-danger-500 ml-0.5">*</span>}
@@ -52,16 +52,16 @@ export default function Input({
         autoComplete={autoComplete}
         aria-invalid={!!error}
         aria-describedby={errorId}
-        className={`w-full px-3.5 py-2.5 text-sm rounded-lg border transition-all duration-200
+        className={`input-surface w-full px-3.5 py-3 text-sm rounded-lg border transition-all duration-200
           ${
             error
               ? 'border-danger-500 focus:ring-2 focus:ring-danger-500/20 focus:border-danger-500'
               : focused
                 ? 'border-primary-500 ring-2 ring-primary-500/20'
-                : 'border-gray-300 hover:border-gray-400'
+                : 'border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500'
           }
-          ${disabled ? 'bg-gray-50 text-gray-400 cursor-not-allowed' : 'bg-white text-gray-900'}
-          placeholder:text-gray-400 outline-none`}
+          ${disabled ? 'bg-gray-50 dark:bg-gray-800 text-gray-400 cursor-not-allowed' : 'bg-white dark:bg-[#0f172a] text-gray-900 dark:text-gray-100'}
+          placeholder:text-gray-400 dark:placeholder:text-gray-500 outline-none`}
         {...props}
       />
       {error && (

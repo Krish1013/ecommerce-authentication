@@ -7,7 +7,7 @@ import { useToast } from '../../../hooks/useToast';
 import { validateEmail, validateRequired } from '../../../utils/validators';
 
 /**
- * Login form with email/password validation and loading state.
+ * Login form with validation, loading state, and dark mode.
  */
 export default function Login() {
   const { login, loading, error, clearError } = useAuth();
@@ -44,7 +44,6 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate all fields
     const newErrors = {
       email: validate('email', form.email),
       password: validate('password', form.password),
@@ -66,7 +65,7 @@ export default function Login() {
   return (
     <form onSubmit={handleSubmit} noValidate>
       {error && (
-        <div className="mb-4 p-3 rounded-lg bg-danger-50 border border-red-200 text-sm text-red-700" role="alert">
+        <div className="mb-5 p-3.5 rounded-lg bg-danger-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-sm text-red-700 dark:text-red-300" role="alert">
           {error}
         </div>
       )}
@@ -99,13 +98,13 @@ export default function Login() {
         <label className="flex items-center gap-2 cursor-pointer">
           <input
             type="checkbox"
-            className="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+            className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-primary-600 focus:ring-primary-500"
           />
-          <span className="text-sm text-gray-600">Remember me</span>
+          <span className="text-sm text-gray-600 dark:text-dark-secondary">Remember me</span>
         </label>
         <Link
           to="/reset-password"
-          className="text-sm font-medium text-primary-600 hover:text-primary-700"
+          className="text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
         >
           Forgot password?
         </Link>
@@ -120,9 +119,9 @@ export default function Login() {
         Sign In
       </Button>
 
-      <p className="mt-6 text-center text-sm text-gray-500">
+      <p className="mt-6 text-center text-sm text-gray-500 dark:text-dark-secondary">
         Don&apos;t have an account?{' '}
-        <Link to="/signup" className="font-medium text-primary-600 hover:text-primary-700">
+        <Link to="/signup" className="font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
           Create one
         </Link>
       </p>

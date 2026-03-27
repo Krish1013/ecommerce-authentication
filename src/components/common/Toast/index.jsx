@@ -1,7 +1,7 @@
 import { useToast } from '../../../hooks/useToast';
 
 /**
- * Toast notification container — renders all active toasts.
+ * Toast notification container with dark mode support.
  */
 export default function Toast() {
   const { toasts, removeToast } = useToast();
@@ -9,9 +9,9 @@ export default function Toast() {
   if (toasts.length === 0) return null;
 
   const typeStyles = {
-    success: 'bg-success-50 border-success-500 text-green-800',
-    error: 'bg-danger-50 border-danger-500 text-red-800',
-    info: 'bg-primary-50 border-primary-500 text-blue-800',
+    success: 'bg-success-50 dark:bg-green-900/40 border-success-500 text-green-800 dark:text-green-300',
+    error: 'bg-danger-50 dark:bg-red-900/40 border-danger-500 text-red-800 dark:text-red-300',
+    info: 'bg-primary-50 dark:bg-blue-900/40 border-primary-500 text-blue-800 dark:text-blue-300',
   };
 
   const icons = {
@@ -53,7 +53,7 @@ export default function Toast() {
       {toasts.map((toast) => (
         <div
           key={toast.id}
-          className={`pointer-events-auto flex items-start gap-3 px-4 py-3 rounded-lg border-l-4 shadow-lg backdrop-blur-sm ${
+          className={`pointer-events-auto flex items-start gap-3 px-4 py-3.5 rounded-xl border-l-4 shadow-lg backdrop-blur-sm ${
             typeStyles[toast.type] || typeStyles.info
           } ${toast.exiting ? 'animate-toast-out' : 'animate-toast-in'}`}
           role="alert"

@@ -7,7 +7,7 @@ import { useToast } from '../../../hooks/useToast';
 import { validateEmail, validatePassword, validateRequired } from '../../../utils/validators';
 
 /**
- * Signup form with strong password validation and inline errors.
+ * Signup form with strong password validation, strength meter, and dark mode.
  */
 export default function Signup() {
   const { signup, loading, error, clearError } = useAuth();
@@ -91,7 +91,7 @@ export default function Signup() {
   return (
     <form onSubmit={handleSubmit} noValidate>
       {error && (
-        <div className="mb-4 p-3 rounded-lg bg-danger-50 border border-red-200 text-sm text-red-700" role="alert">
+        <div className="mb-5 p-3.5 rounded-lg bg-danger-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-sm text-red-700 dark:text-red-300" role="alert">
           {error}
         </div>
       )}
@@ -134,18 +134,18 @@ export default function Signup() {
 
       {/* Password strength meter */}
       {form.password && (
-        <div className="mb-4 -mt-2">
-          <div className="flex gap-1 mb-1">
+        <div className="mb-5 -mt-3">
+          <div className="flex gap-1 mb-1.5">
             {[1, 2, 3, 4, 5].map((i) => (
               <div
                 key={i}
-                className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                  i <= strength.level ? strength.color : 'bg-gray-200'
+                className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                  i <= strength.level ? strength.color : 'bg-gray-200 dark:bg-gray-600'
                 }`}
               />
             ))}
           </div>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500 dark:text-dark-secondary">
             Password strength: <span className="font-medium">{strength.label}</span>
           </p>
         </div>
@@ -160,9 +160,9 @@ export default function Signup() {
         Create Account
       </Button>
 
-      <p className="mt-6 text-center text-sm text-gray-500">
+      <p className="mt-6 text-center text-sm text-gray-500 dark:text-dark-secondary">
         Already have an account?{' '}
-        <Link to="/login" className="font-medium text-primary-600 hover:text-primary-700">
+        <Link to="/login" className="font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
           Sign in
         </Link>
       </p>
