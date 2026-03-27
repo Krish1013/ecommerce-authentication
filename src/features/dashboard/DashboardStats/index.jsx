@@ -10,11 +10,11 @@ export default function DashboardStats({ stats = [] }) {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {stats.map((stat, index) => (
         <article
           key={stat.id}
-          className="card-surface rounded-xl p-6 transition-all duration-300 animate-fade-in-up"
+          className="card-surface rounded-xl p-6 shadow-sm transition-all duration-300 animate-fade-in-up"
           style={{ animationDelay: `${index * 80}ms` }}
         >
           <div className="flex items-start justify-between mb-4">

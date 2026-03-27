@@ -33,7 +33,7 @@ export default function Input({
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+          className="block text-sm font-medium text-gray-900 dark:text-gray-300 mb-1.5"
         >
           {label}
           {required && <span className="text-danger-500 ml-0.5">*</span>}
@@ -57,7 +57,7 @@ export default function Input({
             error
               ? 'border-danger-500 focus:ring-2 focus:ring-danger-500/20 focus:border-danger-500'
               : focused
-                ? 'border-primary-500 ring-2 ring-primary-500/20'
+                ? 'border-blue-500 focus:ring-2 focus:ring-blue-500'
                 : 'border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500'
           }
           ${disabled ? 'bg-gray-50 dark:bg-gray-800 text-gray-400 cursor-not-allowed' : 'bg-white dark:bg-[#0f172a] text-gray-900 dark:text-gray-100'}

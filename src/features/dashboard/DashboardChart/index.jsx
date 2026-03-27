@@ -5,7 +5,7 @@ export default function DashboardChart({ data = [] }) {
   const maxValue = Math.max(...data.map((d) => d.value), 1);
 
   return (
-    <div className="card-surface rounded-xl p-6 h-full">
+    <div className="card-surface rounded-xl p-6 h-full shadow-sm">
       <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-5">Weekly Overview</h2>
 
       <div className="flex items-end gap-2 sm:gap-3 h-48">

@@ -48,8 +48,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #f8fafc;
-  color: #1e293b;
+  background-color: #ffffff;
+  color: #111827;
   line-height: 1.65;
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -65,8 +65,8 @@ body {
 
 /* Card surfaces */
 .card-surface {
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -85,6 +85,12 @@ body {
   box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -2px rgba(0, 0, 0, 0.3);
 }
 
+/* Nav surfaces */
+.nav-surface {
+  background-color: #ffffff;
+  border-color: #d1d5db;
+}
+
 /* Dark mode for header/nav */
 .dark .nav-surface {
   background-color: #1e293b;
@@ -95,6 +101,16 @@ body {
 .dark .text-dark-primary { color: #f1f5f9; }
 .dark .text-dark-secondary { color: #94a3b8; }
 .dark .text-dark-muted { color: #64748b; }
+
+/* Input surfaces */
+.input-surface {
+  background-color: #ffffff;
+  border-color: #d1d5db;
+  color: #111827;
+}
+.input-surface::placeholder {
+  color: #6b7280;
+}
 
 /* Dark mode inputs */
 .dark .input-surface {
@@ -107,6 +123,11 @@ body {
 }
 .dark .input-surface::placeholder {
   color: #475569;
+}
+
+/* Auth layout */
+.auth-bg {
+  background-color: #ffffff;
 }
 
 /* Dark mode auth layout */
